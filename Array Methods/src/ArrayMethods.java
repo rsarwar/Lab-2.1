@@ -1,6 +1,6 @@
 
 public class ArrayMethods {
-
+	
 	public static void main (String[] args)
 	{
 		int[] numlist = {1,3,2,5,3,6};
@@ -18,9 +18,9 @@ public class ArrayMethods {
 	{
 		
 		int counter = 0;
-		for(int i = 0; i<list.length-1;i++)
+		for(int i = 0; i<list.length-2;i++)
 		{
-			for(int j = 1;j<list.length;j++)
+			for(int j = i+1;j<list.length-1;j++)
 			{
 				if(!(list[i] == list[j]))
 				{
@@ -31,16 +31,16 @@ public class ArrayMethods {
 		
 		int[] newArr =  new int[counter];
 		
-		for(int i = 0; i<list.length-1;i++)
+		/*for(int i = 0; i<list.length-2;i++)
 		{
-			for(int j = i+1;j<list.length;j++)
+			for(int j = i+1;j<list.length-1;j++)
 			{
 				if(!(list[i] == list[j]))
 				{
 					newArr[i] = list[j];
 				}
 			}
-		}
+		}*/
 		
 		return newArr;
 	}
