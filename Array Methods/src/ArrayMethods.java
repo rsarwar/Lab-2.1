@@ -17,19 +17,28 @@ public class ArrayMethods {
 	public static int[] removeDuplicates(int[] list)
 	{
 		
-		int counter = 0;
-		for(int i = 0; i<list.length-2;i++)
+		int len = list.length;
+		for(int i = 0; i<len;i++)
 		{
-			for(int j = i+1;j<list.length-1;j++)
+			for(int j = i+1;j<len;j++)
 			{
-				if(!(list[i] == list[j]))
+				if(list[i] == list[j])
 				{
-					counter++;
+					for(int h = j+1; h<len;h++)
+					{
+						list[j] = list[h];
+					}
+					len--;
+					j--;
 				}
 			}
 		}
 		
-		int[] newArr =  new int[counter];
+		int[] newArr =  new int[len];
+		for(int i = 0;i<len;i++)
+		{
+			newArr[i] = list[i];
+		}
 		
 		/*for(int i = 0; i<list.length-2;i++)
 		{
