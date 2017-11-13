@@ -3,8 +3,23 @@ public class ArrayMethods {
 	
 	public static void main (String[] args)
 	{
-		int[] numlist = {1,3,2,5,3,6};
+		//int[] numlist = {1,3,2,5,3,6};
+		
+		int[] arr1 = {5,10,15};
+		int[] arr2 = {1,20,3};
+		
+		/* long startTime = System.nanoTime();
 		printArray(removeDuplicates(numlist));
+		long endTime = System.nanoTime();
+		long totalTime = endTime - startTime;
+		System.out.println("Time Taken in nanoseconds: "+ totalTime); */
+		
+		long startTime = System.nanoTime();
+		printMultiArray(productArray(arr1, arr2));
+		long endTime = System.nanoTime();
+		long totalTime = endTime - startTime;
+		System.out.println("Time Taken in nanoseconds: "+ totalTime);
+		
 	}
 	public static void printArray(int[] arr)
 	{
@@ -13,6 +28,19 @@ public class ArrayMethods {
 			System.out.print("["+arr[i]+"] ");
 		}
 		System.out.println();
+	}
+	
+	public static void printMultiArray(int[][] arr)
+	{
+		for(int x = 0; x < arr.length; x++)
+		{
+			System.out.println("");
+			for(int y = 0; y < arr.length; y++)
+			{
+				System.out.print("["+arr[x][y]+"] ");
+			}
+		}
+			System.out.println();
 	}
 	public static int[] removeDuplicates(int[] list)
 	{
@@ -52,5 +80,46 @@ public class ArrayMethods {
 		}*/
 		
 		return newArr;
+	}
+	
+	public static int[][] productArray(int[] arr1, int[] arr2)
+	{
+		int[][] productArray = new int [arr1.length][arr2.length];
+		for(int i = 0; i < arr1.length; i++)
+		{
+			for(int j = 0; j < arr2.length; j++)
+			{
+				productArray[i][j] = arr1[i] * arr2[j];
+			}
+		}
+		
+		return productArray;
+	}
+	
+	public static int[][] pascalTriangle(int n)
+	{
+		int[][] pascalTri = new int[n][];
+		
+	}
+	public static int countUnique(int[] numbers)
+	{
+		int count = 0;
+		for(int i = 0; i<numbers.length;i++)
+		{
+			boolean unique = true;
+			for(int j = i+1; j<numbers.length;j++)
+			{
+				if(numbers[i]==numbers[j])
+				{
+					unique = false;
+					break;
+				}
+			}
+			if(unique)
+			{
+				count++;
+			}
+		}
+		return count;
 	}
 }
