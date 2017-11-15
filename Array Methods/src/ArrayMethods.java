@@ -20,6 +20,8 @@ public class ArrayMethods {
 		long totalTime = endTime - startTime;
 		System.out.println("Time Taken in nanoseconds: "+ totalTime);
 		
+		printPascalTriangle(pascalTriangle(6));
+		
 	}
 	public static void printArray(int[] arr)
 	{
@@ -98,8 +100,38 @@ public class ArrayMethods {
 	
 	public static int[][] pascalTriangle(int n)
 	{
-		int[][] pascalTri = new int[n][];
+		int[][] pascalTri = new int[n][]; 
+		for(int i = 0; i < n; i++)
+		{
+			pascalTri[i] = new int[i+1];
+			for(int j = 0; j< pascalTri[i].length; j++)
+			{
+				if((j == 0)||(j == pascalTri[i].length-1))
+				{
+					pascalTri[i][j] = 1;
+				}
+				else
+				{
+					pascalTri[i][j] = pascalTri[i-1][j-1]+pascalTri[i-1][j];
+				}
+				//pascalTri[i][j] = 1;
+			}
+		}
+		return pascalTri;
 		
+	}
+	public static void printPascalTriangle(int[][]pTriangle)
+	{
+		
+		int n = pTriangle.length;
+		for(int i = 0; i < n; i++)
+		{
+			System.out.println();
+			for(int j = 0;j < pTriangle[i].length; j++)
+			{
+				System.out.print("[" + pTriangle[i][j] + "]" );
+			}
+		}
 	}
 	public static int countUnique(int[] numbers)
 	{
